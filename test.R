@@ -24,7 +24,7 @@ CalcA <- function(X, Y) {
 CalcB <- function(X, Y) {
     sumX <- Summary(X)
     sumY <- Summary(Y)
-    sumXY <- Summary(X,Y)
+    sumXY <- Summary(X, Y)
     sumXSquared <- SummarySquared(X)
 
     upper <- (sumX * sumY) - (sumX * sumXY)
