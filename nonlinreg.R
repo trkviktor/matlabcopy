@@ -1,17 +1,14 @@
-x <- c(0, 1, 2, 3)
-y <- c(1, 2.6, 5.4, 2.71^3 - 0.1)
+x <- c(1, 2, 3, 4)
+y <- c(1, log(2)* exp(20*3), 54, 78)
 n <- length(x)
 
-#y = a* e^b*x
-#utána ln
-#a b megbecsülés és c kiszámolása(ln(a))
+
 NonLinReg <- function(X, Y) {
   Y <- log(Y)
   a <- CalcA(X, Y)
   b <- CalcB(X, Y)
-  #Y <- exp(Y)
   plot(X, Y)
-  lines(X, a * exp(b * X), type = "l", lty = 1, col = "red")
+  curve(exp(a* x) * exp(b))
 }
 
 CalcA <- function(X, Y) {
