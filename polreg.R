@@ -8,7 +8,7 @@ PolReg <- function(X, Y) {
 }
 
 CalcA2 <- function(X, Y) {
-  n <- length(x)
+  n <- length(X)
   sumx2y <- Summary(X^2, Y^1)
   sumx3 <- Summary(X^3)
   sumx2 <- Summary(X^2)
