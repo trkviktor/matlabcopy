@@ -1,15 +1,17 @@
 x <- c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20)
-y <- c(15, 33, 61, 99, 147, 205, 273, 351, 439, 537, 645, 763, 891, 1029, 1177, 1347, 1523, 1717, 1927, 2067)
+y <- 5 * x^2 + 3 * x + 7
 n <- length(x)
 # y = 5x^2+3x+7
 PolReg <- function(X, Y) {
+  Y <- 3 * X + 7 #converting to linear if needed
   plot(X, Y)
   sumx = Summary(X)
   sumx2 = Summary(X^2)
   A2 <- CalcA2(X, Y)
   A1 <- CalcA1(X, Y)
   A0 <- CalcA0(X, Y)
-  #curve(A2 * X^2 + A1 * X + A0)
+
+  #lines(X, 3 * X + 7, type = "l", lty = 1, col = "red")
   lines(X, A2 * X^2 + A1 * X + A0, type = "l", lty = 1, col = "red")
 }
 
