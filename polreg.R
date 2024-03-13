@@ -11,7 +11,6 @@ PolReg <- function(X, Y) {
   A1 <- CalcA1(X, Y)
   A0 <- CalcA0(X, Y)
 
-  #lines(X, 3 * X + 7, type = "l", lty = 1, col = "red")
   lines(X, A2 * X^2 + A1 * X + A0, type = "l", lty = 1, col = "red")
 }
 
@@ -41,12 +40,9 @@ CalcA1 <- function(X, Y) {
   sumx3 <- Summary(X^3)
   sumxy <- Summary(X, Y)
   sumx <- Summary(X)
-
   sumy <- Summary(Y)
 
   n <- length(X)
-
-
 
   upper <- sumx4 * (sumxy * n - sumy * sumx) - sumx2y * (sumx3 * n - sumx2 * sumx) + sumx2 * (sumx3 * sumy - sumx2 * sumxy)
   bottom <- sumx4 * (sumx2 * n - sumx * sumx) - sumx3 * (sumx3 * n - sumx2 * sumx) + sumx2 * (sumx3 * sumx - sumx2 * sumx2)
