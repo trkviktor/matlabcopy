@@ -1,10 +1,16 @@
-x <- c(1, 2, 3, 4)
-y <- c(15, 33, 61, 99)
+x <- c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+y <- c(15, 33, 61, 99, 147, 205, 273, 351, 439, 537)
 n <- length(x)
 # y = 5x^2+3x+7
 PolReg <- function(X, Y) {
-  CalcA2(X, Y)
-  CalcA0(X, Y)
+  plot(X, Y)
+  sumx = Summary(X)
+  sumx2 = Summary(X^2)
+  A2 <- CalcA2(X, Y)
+  A1 <- CalcA1(X, Y)
+  A0 <- CalcA0(X, Y)
+  #curve(A2 * X^2 + A1 * X + A0)
+  lines(X, A2 * X^2 + A1 * X + A0, type = "l", lty = 1, col = "red")
 }
 
 CalcA2 <- function(X, Y) {
@@ -26,6 +32,27 @@ CalcA2 <- function(X, Y) {
   print(A2)
 }
 
+CalcA1 <- function(X, Y) {
+  sumx4 <- Summary(X^4)
+  sumx2y <- Summary(X^2, Y)
+  sumx2 <- Summary(X^2)
+  sumx3 <- Summary(X^3)
+  sumxy <- Summary(X, Y)
+  sumx <- Summary(X)
+
+  sumy <- Summary(Y)
+
+  n <- length(X)
+
+
+
+  upper <- sumx4 * (sumxy * n - sumy * sumx) - sumx2y * (sumx3 * n - sumx2 * sumx) + sumx2 * (sumx3 * sumy - sumx2 * sumxy)
+  bottom <- sumx4 * (sumx2 * n - sumx * sumx) - sumx3 * (sumx3 * n - sumx2 * sumx) + sumx2 * (sumx3 * sumx - sumx2 * sumx2)
+
+  A1 <- upper / bottom
+  print(A1)
+}
+
 CalcA0 <- function(X, Y) {
   n <- length(x)
   sumx4 <- Summary(X^4)
@@ -33,7 +60,7 @@ CalcA0 <- function(X, Y) {
   sumx2y <- Summary(X^2, Y)
   sumx3 <- Summary(X^3)
   sumx2 <- Summary(X^2)
-  sumxy <- Summary(X,Y)
+  sumxy <- Summary(X, Y)
   sumx <- Summary(X)
   sumy <- Summary(Y)
 
