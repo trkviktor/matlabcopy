@@ -1,9 +1,10 @@
 RollDice <- function(N, K, P) {
+    n <- length(K)
     sum <- 0
     for (i in 1:n) {
-        sum <- sum + ((K[i] - (N * P[i]))^2) / (600 * P[i])
+        sum <- sum + ((K[i] - (N * P))^2) / (600 * P)
     }
-    
+    print(sum)
 }
 
 
@@ -27,7 +28,7 @@ Summary <- function(X, Y) {
 
 
 dice <- c(1, 2, 3, 4, 5, 6)
-k <- c(1)
-p <- c(1)
+k <- c(81,91,122,107,74,123)
+p <- 1/6
 
-print(RollDice(dice, k, n))
+print(RollDice(600, k, p))
