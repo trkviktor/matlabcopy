@@ -4,6 +4,8 @@ RollDice <- function(N, K, P) {
     for (i in 1:n) {
         sum <- sum + ((K[i] - (N * P[i]))^2) / (600 * P[i])
     }
+
+    #ez nem tudom kell-e mjozsef2000 githubján fentvan de órán nem lett elmondva
     cat(sum, "<", qchisq(p = .90, df = n - 1), "?\n")
     cat("\n")
     if (sum < qchisq(p = .90, df = n - 1)) {
