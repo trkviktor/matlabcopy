@@ -13,7 +13,6 @@ SummaryM <- function(X, Y) {
   return(sum)
 }
 
-#mjozsef2000-től lopva
 Independency <- function(K){
   Frow = rowSums(K)
   Fcol = colSums(K)
