@@ -1,18 +1,3 @@
-
-
-SummaryM <- function(X, Y) {
-  sum <- 0
-  n = length(X)
-  print(n)
-  for (i in 1:n) {
-    for(j in 1:n) {
-        sum <- sum + X[i][j]
-        print(X[i][j])
-    }
-  }
-  return(sum)
-}
-
 Independency <- function(K){
   Frow = rowSums(K)
   Fcol = colSums(K)
